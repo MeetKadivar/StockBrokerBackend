@@ -25,22 +25,7 @@ const alpacaClient = new Alpaca({
     paper: true
 });
 
-// Define a route to retrieve orders
-app.get('/get-orders', async (req, res) => {
-    try {
-        const orders = await alpacaClient.getOrders({
-            status: 'all',
-            direction: 'asc'
-        });
-        console.log('Orders:', orders);
-        res.send(orders);
-    } catch (error) {
-        console.error('Error retrieving orders:', error);
-        res.status(500).send('Error retrieving orders');
-    }
-});
 
-// Define a route
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
